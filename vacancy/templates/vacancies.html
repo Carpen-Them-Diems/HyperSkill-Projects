@@ -1,0 +1,28 @@
+{% extends 'menu.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vacancies</title>
+</head>
+<header>
+
+</header>
+<body>
+    <main>
+        {% block content %}
+
+        {% for vacancy in vacancies %}
+        <div>
+            {{ vacancy.author.username }}: {{ vacancy.description }}
+
+        </div>
+        {% endfor %}
+
+        {% endblock %}
+    </main>
+    {% block intro %}
+    {% endblock %}
+</body>
+</html>
