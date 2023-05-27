@@ -1,0 +1,94 @@
+/* styles.css */
+
+/* Reset some default styles */
+body, h1, h2, h3, p, a, form {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+.menu-header {
+    text-align: center;
+}
+
+.menu-header h1 {
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.menu-header .menu {
+    display: inline-block;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 5px auto;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+header .menu:hover {
+    background-color: teal;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+p#intro {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: block;
+    max-width: 1200px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+form#form {
+    margin-top: 10px;
+    justify-content: center;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+
+button[type="submit"] {
+    margin-top: 10px;
+}
+
+label#password2 {
+    justify-content: center;
+}

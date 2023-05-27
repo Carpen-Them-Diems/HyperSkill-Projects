@@ -1,0 +1,27 @@
+{% extends 'menu.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create_Vacancy</title>
+</head>
+<header>
+</header>
+<body>
+    <main>
+        {% block content %}
+        <div>
+            <h2>Create Vacancy</h2>
+            <h4>Only registered managers can create and post vacancies!</h4>
+            <form id='new_vacancy' style="justify-content: center;" method='post'>
+                {% csrf_token %}
+                {{ form }}
+                <button type='submit'>Post</button>
+            </form>
+        </div>
+        {% endblock %}
+    </main>
+    {% block intro %}
+    {% endblock %}
+</body>

@@ -1,0 +1,26 @@
+{% extends 'menu.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<header>
+    <h1><strong>Login to HyperJobs</strong></h1>
+</header>
+<body>
+    <main>
+        <h2>Login</h2>
+        {% block content %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Login</button>
+        </form>
+        {% endblock %}
+    </main>
+    {% block id="intro" %}
+    {% endblock %}
+</body>
+</html>

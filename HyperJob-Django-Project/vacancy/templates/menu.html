@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to HyperJob!</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<header class="menu-header">
+    <h1><b><em>Welcome to HyperJob!</em></b></h1>
+    <a class="menu" href='/home'>Home</a>
+    <a class="menu" href='/vacancies'>Vacancies</a>
+    <a class="menu" href='/resumes'>Resumes</a>
+    <a class="menu" href='/login'>Login</a>
+    <a class="menu" href='/logout'>Logout</a>
+    <a class="menu" href='/signup'>Signup</a>
+</header>
+<body>
+    {% block intro %}
+    <p id="intro">Welcome to HyperJob, the premier job site for the modern workforce. In an era where artificial
+        intelligence and machine learning are revolutionizing industries, we understand the need for a platform that
+        caters specifically to professionals and employers in this domain. At HyperJob, we specialize in connecting
+        talented individuals who have skills in cutting-edge AI tools with employers who value innovation and
+        forward-thinking. Whether you're an expert in Language Learning Models (LLMs), proficient with advanced AI
+        like OpenAI's ChatGPT, or have experience with comprehensive AI platforms like MidJourney, HyperJob is the
+        place for you. For employers, HyperJob offers access to a pool of candidates who are not just familiar with,
+        but excel in using modern AI tools. These are individuals who are at the forefront of their fields, driving
+        innovation and pushing boundaries. If you're an employer looking to stay ahead of the curve, our candidates are
+        the ones who will help you do it. But HyperJob is more than just a job site. We're a community. We provide
+        resources, host events, and foster a culture of continuous learning and growth. We believe in the power of AI
+        to transform the world, and we're committed to helping our members be at the forefront of that transformation.
+        Join us at HyperJob, and let's shape the future of work together!
+    </p>
+    {% endblock %}
+    <main>
+        {% block content %}
+        <h2>Welcome to your Profile</h2>
+
+        {% if request.user.is_authenticated %}
+            {% if request.user.is_staff %}
+            <h3>Create a Vacancy</h3>
+            <form method="post" action="{% url 'new_vacancy' %}">
+                {% csrf_token %}
+                {{ vacancy_form }}
+                <button type="submit">Create</button>
+            </form>
+            {% else %}
+                <h3>Create a Resume</h3>
+                <form method="post" action="{% url 'new_resume' %}">
+                {% csrf_token %}
+                {{ resume_form }}
+                <button type="submit">Create</button>
+            </form>
+            {% endif %}
+        {% endif %}
+        {% endblock %}
+    </main>
+</body>
+</html>
