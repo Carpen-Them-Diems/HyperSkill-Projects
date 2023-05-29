@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}<title>Create Article</title>{% endblock %}
+    <style>
+    </style>
+</head>
+{% block header %}
+<header style="justify-content: center; text-align:center; margin-top: -40px; ">
+    <h1><b>Submit An Article</b></h1>
+    <h3 style="margin-top: -25px; margin-bottom: 50px;">Enter your title and the body content into the form then click submit to add an article to
+        HyperNews!</h3>
+</header>
+{% endblock %}
+{% block body %}
+<body>
+    <main>
+        <div style="justify-content: center; text-align: center;">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+            </form>
+            <div>
+                <input class='submit-button' type="submit" value="Submit">
+            </div><br>
+            <a class='backnews-button' target='_self' href="/news/">Back To News</a>
+        </div>
+    </main>
+</body>
+{% endblock %}
+</html>

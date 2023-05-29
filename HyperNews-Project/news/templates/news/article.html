@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}<title>Articles</title>{% endblock %}
+</head>
+{% block header %}
+<header style="margin-top: -40px;">
+    <h1><b>HyperNews Articles: {{ article.title }}</b></h1>
+</header>
+{% endblock %}
+{% block body %}
+<body>
+    <main>
+        <h2 style="justify-content: center; font-size: 50px; margin-bottom: -15px;">{{ article.title }}</h2>
+        <p style="justify-content: center; text-align: center; font-size: 30px;">{{ article.created }}</p>
+        <p style="justify-content: center; text-align: center; font-size: 25px;">{{ article.text }}</p>
+        <div class="home-div">
+            <a class="home-button" style="display: grid;" href="/news/" target="_self">Home</a>
+        </div>
+    </main>
+</body>
+{% endblock %}
+</html>

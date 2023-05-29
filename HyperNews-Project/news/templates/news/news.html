@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    {% block style %}
+    {% endblock %}
+    <meta charset="UTF-8">
+    {% block title %}<title>News</title>{% endblock %}
+</head>
+{% block header %}
+<header style="margin-top: -40px;">
+    <h1 style="margin-bottom: 20px;">HyperNews</h1>
+    <form class="search-form" style="margin-left: 70%;" action="/news/" method="get">
+        <input type="text" name="q" placeholder="Search articles...">
+        <input type="submit" value="Search">
+    </form>
+</header>
+{% endblock %}
+{% block body %}
+<body>
+    <div class="articles-div">
+        {% for date_group in grouped_articles %}
+            <h4 class="articles-h4">{{ date_group.date }}</h4>
+            <ul class='articles-ul'>
+                {% for article in date_group.articles %}
+                <li class="article-button"><a href="/news/{{ article.link }}/">{{ article.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </div>
+    <br><br>
+    <div class='create-div'>
+        <a class="create-button" target="_self" href="/news/create/" >Create Article</a>
+    </div>
+</body>
+{% endblock %}
+</html>
